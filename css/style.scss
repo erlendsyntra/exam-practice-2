@@ -3,16 +3,105 @@
 @use "./base/fonts";
 @use "./base/mixins" as *;
 
-/* style to color p icon red */
-p {
-  color: red;
+body {
+  background-color: $bodybg;
+  padding-top: 28px;
+  font-family: Roboto, sans-serif;
 }
 
-/* style to implement icon within div via after */
-div::after {
-  content: "";
-  left: 0;
-  top: 0;
-  display: block;
-  @include icon("icon-checked", $green, 2rem);
+.app {
+  width: 95%;
+  max-width: 572px;
+  margin: 0 auto;
+  &__form {
+    background-color: $green;
+    border-radius: 10px;
+    padding: 18px;
+    position: relative;
+    &__input {
+      font-size: 1.8rem;
+      height: 65px;
+      border-radius: 7px;
+      border: none;
+      background-color: rgba($white, 0.2);
+      width: calc(100% - 32.5px);
+      padding-left: 26px;
+      &::placeholder {
+        color: rgba($white, 0.75);
+      }
+    }
+    &__button {
+      width: 65px;
+      height: 65px;
+      background-color: $white;
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      &::after {
+        content: "";
+        @include icon("icon-add", $green, 3rem);
+      }
+    }
+  }
+  &__list {
+    padding: 19px;
+    &__item {
+      background-color: #fff;
+      padding: 14px;
+      margin-bottom: 13px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      & .text {
+        font-size: 1.6rem;
+        margin-right: auto;
+      }
+      & .ico {
+        width: 3rem;
+        height: 3rem;
+        display: block;
+        // background-color: grey;
+        margin-left: 3.2rem;
+        position: relative;
+        &:before {
+          content: "";
+          width: 1px;
+          height: 100%;
+          display: block;
+          background-color: $grey;
+          left: -1.65rem;
+          position: absolute;
+        }
+        &:nth-child(2) {
+          &:before {
+            display: none;
+          }
+        }
+        &--delete,
+        &--checked,
+        &--unchecked {
+          &:after {
+            content: "";
+            left: 0;
+            top: 0;
+            display: block;
+            @include icon("icon-remove", $green, 3rem);
+          }
+        }
+        &--checked::after {
+          @include icon("icon-checked", $green, 3rem);
+        }
+        &--unchecked::after {
+          @include icon("icon-unchecked", $green, 3rem);
+        }
+      }
+    }
+  }
 }

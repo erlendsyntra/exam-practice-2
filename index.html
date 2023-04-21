@@ -9,15 +9,33 @@
     <title>Document</title>
   </head>
   <body>
-    <!-- example to implement icon within p and color it -->
-    <p>
-      <svg class="icon">
-        <use href="./icons/icons.svg#icon-checked" />
-      </svg>
-    </p>
-    <!-- end example -->
-    <!-- example to implement icon using div:after -->
-    <div></div>
-    <!-- end example -->
+    <main class="app">
+      <form action="" class="app__form">
+        <input
+          spellcheck="false"
+          placeholder="Add your todo here"
+          type="text"
+          class="app__form__input"
+        />
+        <button class="app__form__button"></button>
+      </form>
+      <ul class="app__list">
+        <li class="app__list__item">
+          <span class="text">gras afrijden</span>
+          <a href="#" class="ico ico--delete"></a>
+          <a href="#" class="ico ico--unchecked"></a>
+        </li>
+        <li class="app__list__item">
+          <span class="text">tv kijken</span>
+          <a href="#" class="ico ico--delete"></a>
+          <a href="#" class="ico ico--checked"></a>
+        </li>
+        <li class="app__list__item">
+          <span class="text">nog iets doen</span>
+          <a href="#" class="ico ico--delete"></a>
+          <a href="#" class="ico ico--checked"></a>
+        </li>
+      </ul>
+    </main>
   </body>
 </html>
